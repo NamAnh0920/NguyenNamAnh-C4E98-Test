@@ -1,81 +1,386 @@
-body {
-    background-image: url('https://media3.giphy.com/media/LL5FiPJnlFnjy/200w.webp?cid=ecf05e47sxe7ym1pjmvlf5d9yybpksp6t3b2p8xvq55s8bx8&rid=200w.webp');
+.container {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    left: 0;
+    top: 0;
 }
 
-.container {
+/* welcome */
+.welcome {
     position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-image: url('https://i.pinimg.com/originals/80/a9/75/80a9750d105c49b56beaaa84a6ff2667.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.divPage {
+    position: relative;
+    color: chartreuse;
+    z-index: 2;
+    width: 40%;
+    left: 50%;
+    top: 32%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+#signUpForm {
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 80%;
+    position: absolute;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    background-color: orange;
+}
+
+#signUpForm div {
+    font-size: 70px;
+    text-align: center;
+}
+#signUpForm label {
+    font-size: 20px;
+    padding: 10px;
+}
+
+#signUpForm input {
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+.close {
+    opacity: 0;
+    visibility: hidden;
+}
+.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.login, .signUp {
+    position: relative;
+    z-index: 2;
+    left: 45%;
+    top: 46%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+.divPage hr{
+    overflow: visible;
+    padding: 0;
+    border: none;
+    border-top: medium double rgb(20, 131, 16);
+    color: rgb(111, 214, 15);
+    text-align: center;
+}
+      
+.divPage hr::after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 2px 0.25em
+}
+
+.welcome .welcomeDiv {
+    position: relative;
+    color: rgb(160, 240, 13);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    border: 1px solid black;
-    width: 60%;
-    /* background-image: url('https://media3.giphy.com/media/LL5FiPJnlFnjy/200w.webp?cid=ecf05e47sxe7ym1pjmvlf5d9yybpksp6t3b2p8xvq55s8bx8&rid=200w.webp'); */
+    width: 30%;
+    height: 50px;
+    overflow: hidden;
+    border: hidden;
 }
 
-header {
-    background-color: red;
+.welcome .welcomeDiv #hovaten {
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    border: none;
+    color: rgb(90, 212, 34);
+    background-image: url('./Screenshot\ 2020-11-27\ 124012.png');
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.welcome .welcomeDiv label {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+
+.welcome .welcomeDiv label::after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid rgb(8, 230, 45);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.welcome .welcomeDiv .spanName {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.welcome .welcomeDiv input:focus+ .label .spanName, 
+.welcome .welcomeDiv input:valid .label .spanName {
+    transform: translateY(-150%);
+    font-size: 14px;
+}
+
+.welcome .welcomeDiv input:focus+ .label::after,
+.welcome .welcomeDiv input:valid .label::after {
+    transform: translateX(0%);
+}
+
+.welcome #password {
+    position: relative;
+    z-index: 3;
+    top: 60%;
+    left: 35%;
+    width: 30%;
+    height: 30px;
     color: chartreuse;
+    background-image: url('./Screenshot\ 2020-12-03\ 120246.png');
+    background-size: cover;
+    border: none;
+}
+/* getHead function */
+header {
+    width: 100%;
+    padding: 10px 0 10px 0;
+    display: inline-flex;
+    justify-content: flex-end;
+    background-image: url('https://cdn.hipwallpaper.com/i/2/84/qQc65L.jpg');
+    background-size: auto;
+    height: 30px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    border: none;
+}
+
+header .material-icons {
+    vertical-align: middle;
+}
+
+header .search {
     position: relative;
     width: 100%;
-    height: 60px;
+    height: 100%;
+}
+
+header button {
+    border-radius: 5px;
+    border: 1px groove black;
+    margin-left: 5px;
+    text-align: center;
+}
+
+header button.create {
+    margin-left: 20px;
+    margin-right: 120px;
+    font-size: 15px;
+    bottom: 5px;
+}
+
+header .title {
+    margin-left: 100px;
+    margin-right: 200px;
+    text-shadow: 2px 2px 5px red;
     font-size: 30px;
 }
+/* getHead function */
 
-header span {
-    position: relative;
-    top: 10px;
-}
-
-.body .line {
-    background-color: royalblue;
-    padding: 20px;
-    height: auto;
-    text-align: center;
-    font-size: 24px;
-}
-
-.body .title {
-    padding: 15px;
-}
-.body input {
-    border: red;
-    border-radius: 5px;
-    width: 300px;
-    height: 30px;
-}
-
-.body button {
-    height: 30px;
-}
-
-img {
+/* getTable function */
+.main-body {
     position: absolute;
-    height: 180px;
-    width: 180px;
+    top: 50px;
+    left: 0px;
+    width: 100%;
+    background-image: url('https://hinhanhdepmoi.files.wordpress.com/2020/04/mau-background-dep.jpg?w=2000&h=1281&crop=1');
+    background-attachment: fixed;
+    background-size: fit-content;
+    height: fit-content;
+    min-height: 100%;
 }
-/* Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) { 
-    .container {
-        position: absolute;
-        width: 100%;
-        height: fit-content;
-    }
-    header {
-        font-size: 24px;
-    }
-    .body .line {
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    .body input {
-        position: relative;
-        width: 60%;
-    }
-    .body button {
-        position: relative;
-        margin-top: 20px;
-    }
+
+.main-body .group {
+    width: 100px;
+    background-image: linear-gradient(122deg, rgba(236, 180, 120, 0.6), rgb(-40, -10, 99));
+    border: hidden;
+    position: relative;
+    top: -95px;
+    left: -3px;
+    position: absolute;
+    height: 100%;
 }
+
+.main-body .table-content {
+    position: relative;
+    left: 120px;
+}
+
+.main-body .space {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(8, 8, 8);
+    position: relative;
+    margin-top: 120px;
+    z-index: 1;
+}
+.main-body .infoName, .infoAge, .infoGender, .infoPhone, .infoAddress {
+    color: chartreuse;
+}
+
+.main-body .Name {
+    width: fit-content;
+}
+
+.main-body .Age {
+    width: 30px;
+}
+
+.main-body .Gender {
+    width: 40px;
+}
+
+.main-body .Phone {    
+    width: fit-content;
+}
+
+.main-body .Address {
+    width: fit-content;
+}
+
+.main-body .function {
+    width: 10%;
+}
+
+.main-body .Name,
+.main-body .Age, 
+.main-body .Gender, 
+.main-body .Phone, 
+.main-body .Address, 
+.main-body .function{
+    background-color: chartreuse;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.main-body .remove, .main-body .update{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    pointer-events: all;
+}
+
+.main-body button {
+    margin-left: 12px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* createButton function */
+.createButton {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-150%, -50%);
+}
+
+.backGround {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-image: url('https://static.esrgear.com/blog/wp-content/uploads/2019/12/shutterstock_1246339270_meitu_89.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.createButton .img {
+    height: 320px;
+    width: 300px;
+}
+.createButton th {
+    border: hidden;
+    font-size: medium;
+    width: 45px;
+    height: 30px;
+}
+
+.createButton td {
+    display: flex;
+    justify-content: end;
+    width: 195px
+}
+
+.createButton .material-icons, .material-icons.Picture {
+    font-size: 16px;
+    text-align: center;
+}
+
+.createButton button {
+    margin-left: 66px;
+}
+
+.createButton .hoverName, .hoverAge, .hoverPhone, .hoverAddress, .hoverPic {
+    position: relative;
+    display: block;
+}
+
+.createButton .hoverName .requireName,
+.createButton .hoverAge .requireAge,
+.createButton .hoverPhone .requirePhone,
+.createButton .hoverAddress .requireAddress,
+.createButton .hoverPic .requirePic  {
+    border: 1px solid black;
+    position: absolute;
+    width: 150px;
+    height: fit-content;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    left: 30px;
+    top: -40px;
+    border-radius: 5px;
+}
+
+.createButton .material-icons.Name:hover+ .requireName,
+.createButton .material-icons.Age:hover+ .requireAge,
+.createButton .material-icons.Phone:hover+ .requirePhone,
+.createButton .material-icons.Address:hover+ .requireAddress,
+.createButton .material-icons.Picture:hover+ .requirePic {
+    opacity: 1;
+}
+
+/* createButton function */
